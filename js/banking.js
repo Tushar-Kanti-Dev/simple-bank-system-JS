@@ -10,12 +10,23 @@ function getInputValue(inputId) {
 
 // update deposit and withdraw system 
 function updateTotalField(totalFieldId, amount) {
-    debugger;
+    // debugger;
     const totalElement = document.getElementById(totalFieldId);
     const totalText = totalElement.innerText;
     const previousTotal = parseFloat(totalText);
 
     totalElement.innerText = previousTotal + amount;
+}
+// upadte Main balance 
+function upadteBalance(amount, isAdd) {
+    const balanceTotal = document.getElementById('balance-total');
+    const balanceTotalText = balanceTotal.innerText;
+    const previousBalanceTotal = parseFloat(balanceTotalText);
+    if (isAdd == true) {
+        balanceTotal.innerText = previousBalanceTotal + amount;
+    } else {
+        balanceTotal.innerText = previousBalanceTotal - amount;
+    }
 }
 
 
@@ -41,10 +52,14 @@ document.getElementById('deposit-button').addEventListener('click', function() {
     updateTotalField('deposit-total', depositAmount);
 
     // main balance update 
+    /* 
     const balanceTotal = document.getElementById('balance-total');
     const balanceTotalText = balanceTotal.innerText;
     const previousBalanceTotal = parseFloat(balanceTotalText);
-    balanceTotal.innerText = previousBalanceTotal + depositAmount;
+    balanceTotal.innerText = previousBalanceTotal + depositAmount; 
+    */
+    //    update balance system 
+    upadteBalance(depositAmount, true);
 
 });
 
@@ -73,11 +88,15 @@ document.getElementById('withdraw-button').addEventListener('click', function() 
 
 
     // main balance 
-    const balanceTotal = document.getElementById('balance-total');
-    const balanceTotalText = balanceTotal.innerText;
-    const previousTotalBalance = parseFloat(balanceTotalText);
+    /* 
+     const balanceTotal = document.getElementById('balance-total');
+     const balanceTotalText = balanceTotal.innerText;
+     const previousTotalBalance = parseFloat(balanceTotalText);
 
-    balanceTotal.innerText = previousTotalBalance - withdrawAmount;
+     balanceTotal.innerText = previousTotalBalance - withdrawAmount;
+      */
     // clear input text field  
+
+    upadteBalance(withdrawAmount, false);
 
 });
