@@ -8,6 +8,15 @@ function getInputValue(inputId) {
     return amountValue;
 }
 
+// update deposit and withdraw system 
+function updateTotalField(totalFieldId, amount) {
+    debugger;
+    const totalElement = document.getElementById(totalFieldId);
+    const totalText = totalElement.innerText;
+    const previousTotal = parseFloat(totalText);
+
+    totalElement.innerText = previousTotal + amount;
+}
 
 
 // click event 
@@ -22,12 +31,14 @@ document.getElementById('deposit-button').addEventListener('click', function() {
     const depositAmount = getInputValue('deposit-input');
 
 
-    // deposite update 
-    const depositTotal = document.getElementById('deposit-total');
-    const depositTotalText = depositTotal.innerText;
-    const previousDepositTotal = parseFloat(depositTotalText);
+    // // deposite update 
+    // const depositTotal = document.getElementById('deposit-total');
+    // const depositTotalText = depositTotal.innerText;
+    // const previousDepositTotal = parseFloat(depositTotalText);
 
-    depositTotal.innerText = previousDepositTotal + depositAmount;
+    // depositTotal.innerText = previousDepositTotal + depositAmount;
+
+    updateTotalField('deposit-total', depositAmount);
 
     // main balance update 
     const balanceTotal = document.getElementById('balance-total');
@@ -51,11 +62,15 @@ document.getElementById('withdraw-button').addEventListener('click', function() 
 
 
     // main withdraw system 
+    /*  
     const withdrawTotal = document.getElementById('withdraw-total');
-    const withdrawTotalText = withdrawTotal.innerText;
-    const previousWithdrawTotal = parseFloat(withdrawTotalText);
+     const withdrawTotalText = withdrawTotal.innerText;
+     const previousWithdrawTotal = parseFloat(withdrawTotalText);
 
-    withdrawTotal.innerText = previousWithdrawTotal + withdrawAmount;
+     withdrawTotal.innerText = previousWithdrawTotal + withdrawAmount;
+     */
+    updateTotalField('withdraw-total', withdrawAmount)
+
 
     // main balance 
     const balanceTotal = document.getElementById('balance-total');
