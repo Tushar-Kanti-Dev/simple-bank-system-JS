@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Sytem</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <header>
+        <h1 class="text-center text-5xl mt-16">WelCome to <span class="text-orange-600 ">My Banking</span> System</h1>
+    </header>
+    <main>
+        <section class="bg-emerald-200 w-3/4 mx-auto mt-8">
+            <div>
+                <h1 class="text-4xl ml-4 pt-5">Please Login</h1>
+                <input id="user-email" class="block mb-4 m-4 px-2 p-1 rounded w-3/6" type="text" placeholder="Enter Email">
+                <input id="user-password" class="block mb-4 m-4 px-2 p-1 rounded w-3/6" type="password" placeholder="Password">
+
+                <button id="submit-button" class="bg-amber-500 ml-10 p-1 px-2 rounded mb-10 text-white font-semibold">Submit</button>
+            </div>
+
+        </section>
+    </main>
+    <script src="js/banking.js">
+    </script>
+    <script>
+        document.getElementById('submit-button').addEventListener('click', function() {
+            // for email field 
+            const emailField = document.getElementById('user-email');
+            const userEmail = emailField.value;
+            console.log(userEmail)
+                // for password field 
+            const emailPassword = document.getElementById('user-password');
+            const userPassword = emailPassword.value;
+            console.log(userPassword)
+
+            if (userEmail == 'tushar@gmail.com' && userPassword == 'tushar') {
+                window.location.href = 'banking.html';
+            }
+        });
+    </script>
+</body>
+
+</html>
